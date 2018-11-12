@@ -1,0 +1,29 @@
+{
+  "name": "muscles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.3.1",
+    "nodemailer": "^4.6.8",
+    "square-connect": "^2.20180918.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukenelson2120/muscle-munchies.git"
+  },
+  "author": "YN inc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukenelson2120/muscle-munchies/issues"
+  },
+  "homepage": "https://github.com/lukenelson2120/muscle-munchies#readme"
+}
