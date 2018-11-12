@@ -36,7 +36,7 @@ app.use( express.static(__dirname + "/static"));
 const orderJS = require('./static/order.js');
 // set port
 // var server_host = process.env.YOUR_HOST || '0.0.0.0';
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 
 
 // // set up mongoose variables
