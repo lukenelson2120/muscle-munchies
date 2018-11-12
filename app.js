@@ -35,7 +35,7 @@ app.set('view engine', 'ejs');
 app.use( express.static(__dirname + "/static"));
 const orderJS = require('./static/order.js');
 // set port
-var server_host = process.env.YOUR_HOST || '0.0.0.0';
+// var server_host = process.env.YOUR_HOST || '0.0.0.0';
 const port = 3000 || process.env.PORT;
 
 
@@ -209,6 +209,6 @@ order.findOne({email: req.body.email}, function(err, ord){
 });
 });
 
-app.listen(port,  server_host, () => {
+app.listen(port, () => {
   console.log("server started on " + port);
 });
