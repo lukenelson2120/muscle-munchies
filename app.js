@@ -5,7 +5,7 @@ const app = express();
 // use mongoose
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI); //("mongodb://localhost:27017/muzzlemunchies"); //4z
+mongoose.connect(ds033709.mlab.com:33709/heroku_swnm5vwg); //("mongodb://localhost:27017/muzzlemunchies"); //4z
 
 // use body parser
 var bodyParser = require('body-parser');
