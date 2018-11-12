@@ -1,0 +1,41 @@
+<div class="products">
+  <% var a =0; %>
+  <% if(productList.length > 0) { %>
+  <%  productList.forEach((productList)=> {%>
+    <% if(productList.status === true) { %>
+      <div class="indProduct">
+        <img src="/assets/productimages/balls/<%=productList.image%>" onclick="orderStart(<%=a%>)" class="imageList">
+      <br>  <span class="nameList"> <%= productList.productName %> </span>
+      <br> <span class="nameList"> $<%= productList.price %> </span>
+
+        <!-- Modal -->
+      <div class="modal" id="modal<%= a %>">
+        <div class="modalcontent">
+            <span class="close" id="span<%= a %>"> &times; </span>
+            <div class="modalcolumns">
+              <div class="col">
+                <img class="modalimage" src="/assets/productimages/balls/<%=productList.image%>"/>
+              </div>
+              <div class="col">
+                  <h2 class="modalname"> <strong><%= productList.productName %> </strong></h2>
+                    <p class="modalprice">Price: $<%= productList.price %> </p>
+                        <p class="modalingredients"> Made from: <%= productList.ingredients  %> </p>
+                                                  <p class="modalingredients"> <%= productList.description  %> </p>
+                      <p class="modalingredients"> <%= productList.productDescript %> </p>
+           <input type="text" name="productImage" id="productImage<%=a%>" value="<%= productList.image %>" style="display:none;">
+           <input type="number" name="productPrice" id="productPrice<%=a%>" value="<%= productList.price %>" style="display:none;">
+              <input type="text" name="productName" id="productName<%=a%>" value="<%= productList.productName %>" style="display:none;"><br>
+                <h3> Quantity: </h3><input type="number" min="0" id="amount<%=a%>" name="amount" value="0" required placeholder="How Many?"/>
+                <br> <br>  <button class="classOrder" onclick="registerOrder(<%=a%>)"> Add to Cart </button>
+              </div>
+          </div>
+        </div>
+      </div>
+
+        <% }   a += 1; %>
+
+      </div>
+      <% }); %>
+  <% } else { %><script> alert("No Products Available "); </script>
+  <% } %>
+</div>

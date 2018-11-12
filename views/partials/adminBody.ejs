@@ -1,0 +1,72 @@
+<h2> SEE ORDERS </h2>
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Phone </th>
+    <th> Email </th>
+    <th> Order </th>
+    <th> Price </th>
+    <th> Pick up Location </th>
+    <th> Special Request </th>
+    <th> Paid </th>
+  </tr>
+<% if(orderList.length > 0) { %>
+  <%  orderList.forEach((orderList)=> {%>
+  <tr>
+    <td> <%= orderList.name %> </td>
+    <td> <%= orderList.phone %> </td>
+    <td> <%= orderList.email %> </td>
+    <td> <%= orderList.order %> </td>
+    <td> <%= orderList.price %> </td>
+    <td> <%= orderList.location %> </td>
+    <td> <%= orderList.requests %> </td>
+    <td> <%= orderList.paid %> </td>
+  </tr>
+
+<% }); } %>
+</table>
+
+<h2> COMPLETE ORDER </h2>
+<p> Complete an order by typing in their email. When it is finished, the customer gets an email verifying that their order can be picked up. </p>
+<form method="post" action="/deleteorder">
+  <input type="text" name="email" required>
+    <input type="submit" value="Complete Order">
+</form>
+
+<h2> VERIFY PAYMENT </h2>
+<p> When an order is taken, online payment is optional. By checking the paypal account, you can see who has order. By typing in the email of the order, and then to say it has been paid type 1. </p>
+<form method="post" action="/payorder">
+  <input type="text" name="email" placeholder="email" required>
+  <input type="number" min="0" max="1" name="paid" placeholder="Has it been paid?" required>
+    <input type="submit" value="Verify Payment">
+</form>
+
+<h2> ADD PRODUCT</h2>
+<form method = "post" action="/addproduct">
+        <input type="text" name="image" placeholder="Image Name" required>
+        <input type ="text" name="productName" placeholder="Enter product name here" required>
+        <input type="text" name="productDescript" placeholder="Description?">
+        <input type="text" name="ingredients" placeholder="Ingredients?">
+        <input type="float" name="price" placeholder="Price?" required>
+        <input type="Boolean" name="status" placeholder="Status?" required>
+      <input type="submit" value="Add Order">
+    </form>
+
+    <ul> <% productList.forEach((productList) => { %>
+      <li><img src= "/assets/<%=productList.image %>"> Name: <%= productList.productName %> Ingredients: <%= productList.ingredients %> Description: <%= productList.productDescript %> Price: <%= productList.price%> Available: <%= productList.status %> </li>
+          <% }); %>
+    </ul>
+
+<h2> DEACTIVATE PRODUCT </h2>
+
+<form method="post" action="/updateproduct">
+  <input type="text" name="productName" placeholder="Product Name" required>
+  <input type="number" min="0" max="1" name="status" placeholder="Is it active? 0 for no, 1 for yes" required>
+    <input type="submit" value="Update Order">
+  </form>
+
+  <h2> DELETE PRODUCT </h2>
+  <form method="post" action="/deleteproduct">
+    <input type="text" name="name" required>
+      <input type="submit" value="Delete Product">
+  </form>

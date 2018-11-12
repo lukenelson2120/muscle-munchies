@@ -1,0 +1,50 @@
+<h1 onload="displayCart(orderFull)"> Your Cart </h1>
+
+<table id="orderTable">
+  <tr>
+    <th> Product </th>
+    <th> Order </th>
+    <th> Quantity </th>
+    <th> Price </th>
+  </tr>
+</table>
+ <button style="width: 23%;" class="clearCartButt" onclick="clearCart()"> Clear Cart </button>
+
+
+<form method="post" action="/addorder" class="orderForm" id="orderForm">
+  <br>
+  <h1> Complete the Order </h1>
+  <input type="Array" id="finalOrder" name="order" value="" style="display:none;">
+  <input type="number" id="finalOrderCost" name="price" style="display:none;">
+  <br> <input type="text" name="name" placeholder="Name?" required> <br>
+  <br> <input type="text" name="phone" placeholder="Phone?" required> <br>
+   <br><input type="text" name="email" placeholder="Email?" required> <br>
+   <br> <h3 style="font-size:30px;"> Pickup from? </h3><select name="location" style="height:30px; width:150px;">
+          <option value="Code5"> Code 5 Warriewood</option>
+          <option value="markets"> Frenches Forest Markets </option>
+        </select> <br>
+    <br>  <input type="text" name="requests" placeholder="Any Special Request?"> <br>
+
+</form>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypalform" style="display:none;">
+  <!-- Identify your business so that you can collect the payments. -->
+  <input type="hidden" name="business" value="muscle.munchies1@gmail.com">
+
+  <!-- Specify a Buy Now button. -->
+  <input type="hidden" name="cmd" value="_xclick">
+
+  <!-- Specify details about the item that buyers will purchase. -->
+  <input type="hidden" name="item_name" value="Order">
+  <input type="hidden" name="amount" value="" id="amount">
+  <input type="hidden" name="currency_code" value="AUD">
+  <input type="hidden" name="return" value="http://localhost:3000/addorder">
+
+  <!-- Display the payment button. -->
+  <input type="image" name="submit" border="0"
+  src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+  alt="Buy Now">
+  <img alt="" border="0" width="1" height="1"
+  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+</form>
+<button class="orderbutton"  id="confirmOrderButton" onclick="submiteverything(orderFull)" />
