@@ -186,8 +186,8 @@ img.map {
         width: 100%;
 
     }
-    div.maps {
-        flex:100%;
+    div.mapLinks {
+        display: inline-block;
     }
     
     div.navGrid {
