@@ -140,11 +140,11 @@ app.post("/updateproduct", (req,res) => {
  // Edit
 app.post("/editproduct", (req,res) => {
   switch(req.body.property) {
-      'status':
-      product.findOne({productName: req.body.productName}, function(err, prod){
-        if(err) alert(err);
-        prod.status = JSON.parse(req.body.value);
-       break;
+//       'status':
+//       product.findOne({productName: req.body.productName}, function(err, prod){
+//         if(err) alert(err);
+//         prod.status = JSON.parse(req.body.value);
+//        break;
         
        'ingredients':
           product.findOne({productName: req.body.productName}, function(err, prod){
