@@ -146,24 +146,24 @@ app.post("/editproduct", (req,res) => {
 //         prod.status = JSON.parse(req.body.value);
 //        break;
         
-       'ingredients':
+       ingredients:
           product.findOne({productName: req.body.productName}, function(err, prod){
             if(err) alert(err);
            prod.ingredients = req.body.value;
          break;
             
-         'price':
+         price:
             product.findOne({productName: req.body.productName}, function(err, prod){
             if(err) alert(err);
            prod.price = JSON.parse(req.body.value);
           break;
               
-          'description':
+          description:
           product.findOne({productName: req.body.productName}, function(err, prod){
             if(err) alert(err);
            prod.productDescript = req.body.value;
            break;
-           'image':
+           image:
           product.findOne({productName: req.body.productName}, function(err, prod){
             if(err) alert(err);
            prod.image = req.body.value;
