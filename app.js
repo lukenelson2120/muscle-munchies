@@ -136,6 +136,51 @@ app.post("/updateproduct", (req,res) => {
           });
       });
 });
+
+ // Edit
+app.post("/editproduct", (req,res) => {
+  switch(req.body.property) {
+      'status':
+      product.findOne({productName: req.body.productName}, function(err, prod){
+        if(err) alert(err);
+        prod.status = JSON.parse(req.body.value);
+       break;
+        
+       'ingredients':
+          product.findOne({productName: req.body.productName}, function(err, prod){
+            if(err) alert(err);
+           prod.ingredients = req.body.value;
+         break;
+            
+         'price':
+            product.findOne({productName: req.body.productName}, function(err, prod){
+            if(err) alert(err);
+           prod.price = JSON.parse(req.body.value);
+          break;
+              
+          'description':
+          product.findOne({productName: req.body.productName}, function(err, prod){
+            if(err) alert(err);
+           prod.productDescript = req.body.value;
+           break;
+           'image':
+          product.findOne({productName: req.body.productName}, function(err, prod){
+            if(err) alert(err);
+           prod.image = req.body.value;
+           break;
+          };
+        
+        prod.save()
+          .then (item => {
+            res.redirect('/adminF');
+
+          })
+          .catch(err => {
+            res.status(400).send("Data failed to be updated");
+          });
+      });
+});
+
   // deleting products
 app.post("/deleteproduct", (req,res) => {
   product.deleteOne({productName: req.body.name}, function(err){
