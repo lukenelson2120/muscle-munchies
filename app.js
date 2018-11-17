@@ -139,47 +139,62 @@ app.post("/updateproduct", (req,res) => {
 
  // Edit
 app.post("/editproduct", (req,res) => {
-  switch(req.body.property) {
+  console.log(req.body.property);
+  console.log(parseInt(req.body.value));
+ switch(req.body.property) {
 //       'status':
 //       product.findOne({productName: req.body.productName}, function(err, prod){
 //         if(err) alert(err);
 //         prod.status = JSON.parse(req.body.value);
 //        break;
-        
-       ingredients:
-          product.findOne({productName: req.body.productName}, function(err, prod){
-            if(err) alert(err);
-           prod.ingredients = req.body.value;
-         break;
-            
-         price:
-            product.findOne({productName: req.body.productName}, function(err, prod){
-            if(err) alert(err);
-           prod.price = JSON.parse(req.body.value);
-          break;
-              
-          description:
-          product.findOne({productName: req.body.productName}, function(err, prod){
-            if(err) alert(err);
-           prod.productDescript = req.body.value;
-           break;
-           image:
-          product.findOne({productName: req.body.productName}, function(err, prod){
-            if(err) alert(err);
-           prod.image = req.body.value;
-           break;
-          };
-        
-        prod.save()
-          .then (item => {
-            res.redirect('/adminF');
 
+      case 'ingredients':
+         product.findOne({productName: req.body.productName}, function(err, prod){
+           if(err) alert(err);
+          prod.ingredients = req.body.value;
+                    editProduct(prod);
+        })
+        break;
+
+        case 'price':
+           product.findOne({productName: req.body.productName}, function(err, prod){
+           if(err) alert(err);
+          prod.price = parseInt(req.body.value);
+
+                    editProduct(prod);
+        })
+         break;
+
+         case 'description':
+         product.findOne({productName: req.body.productName}, function(err, prod){
+           if(err) alert(err);
+          prod.productDescript = req.body.value;
+                    editProduct(prod);
           })
-          .catch(err => {
+          break;
+
+          case 'image':
+         product.findOne({productName: req.body.productName}, function(err, prod){
+           if(err) alert(err);
+          prod.image = req.body.value;
+                    editProduct(prod, res);
+          })
+          break;
+         }
+            res.redirect('/adminF');
             res.status(400).send("Data failed to be updated");
-          });
+     });
+  function editProduct(prod, res) {
+    prod.save()
+      .then (item => {
+        res.redirect('/adminF');
+
+      })
+      .catch(err => {
+        res.status(400).send("Data failed to be updated");
       });
-});
+  }
+
 
   // deleting products
 app.post("/deleteproduct", (req,res) => {
