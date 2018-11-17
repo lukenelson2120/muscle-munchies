@@ -67,16 +67,18 @@
   
   
 <h2> EDIT PRODUCT </h2>
-  <form method="post" action="editproduct">
-    <input type="text" name="name" placeholder="Product Name" required>
-    <select name="property" required>
-      <option value="image"> Change Image </option>
-      <option value="price"> Change Price </option>
-      <option value="description"> Change Description </option>
-      <option value="ingredients"> Change Ingredients </option>
-     </select>
-     <input type="text" name="value" placeholder="New value for property" required>
-   </form>
+<form method="post" action="/editproduct">
+  <input type="text" name="productName" placeholder="Product Name" required>
+  <select name="property" required>
+    <option value="image"> Change Image </option>
+    <option value="price"> Change Price </option>
+    <option value="description"> Change Description </option>
+    <option value="ingredients"> Change Ingredients </option>
+   </select>
+   <input type="text" name="value" placeholder="New value for property" required>
+<input type="submit" value="Edit Product">
+ </form>
+
 
   <h2> DELETE PRODUCT </h2>
   <form method="post" action="/deleteproduct">
