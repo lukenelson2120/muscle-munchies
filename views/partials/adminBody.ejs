@@ -64,6 +64,17 @@
   <input type="number" min="0" max="1" name="status" placeholder="Is it active? 0 for no, 1 for yes" required>
     <input type="submit" value="Update Order">
   </form>
+<h2> EDIT PRODUCT </h2>
+  <form method="post" action="editproduct">
+    <input type="text" name="name" placeholder="Product Name" required>
+    <select name="property" required>
+      <option value="image"> Change Image </option>
+      <option value="price"> Change Price </option>
+      <option value="description"> Change Description </option>
+      <option value="ingredients"> Change Ingredients </option>
+     </select>
+     <input type="text" name="value" placeholder="New value for property" required>
+   </form>
 
   <h2> DELETE PRODUCT </h2>
   <form method="post" action="/deleteproduct">
