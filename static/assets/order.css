@@ -18,7 +18,7 @@ div.indProduct {
   padding-bottom: 100px;
   padding-left: 0px;
   max-height: 300px;
-  cursor: pointer;
+
 }
 img.imageList {
   max-height: 300px;
@@ -28,6 +28,8 @@ img.imageList {
   object-fit: cover;
   top: 20px;
   left: 0;
+  vertical-align:bottom;
+    cursor: pointer;
 }
 img.imageList:hover {
   opacity: 40%;
