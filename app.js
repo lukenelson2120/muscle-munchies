@@ -24,10 +24,10 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-   user: 'muscle.munchies1@gmail.com',
-   pass: 'Protein12345'
-//     user: 'lukenelson2120@gmail.com',
-//     pass: 'Lionlion99'
+//    user: 'muscle.munchies1@gmail.com',
+//    pass: 'Protein12345'
+    user: 'lukenelson2120@gmail.com',
+    pass: 'Lionlion99'
   }
  // tls: { rejectUnauthorized: false }
 });
@@ -216,13 +216,15 @@ app.post("/addorder", (req,res) => {
 
   var newOrder = new order(req.body);
   var confirmationEmail = {
-    from: 'muscle.munchies1@gmail.com',
+//     from: 'muscle.munchies1@gmail.com',
+    from: 'lukenelson2120@gmail.com',
      to: req.body.email,
     subject: 'Muscle Munchies',
     text: 'test' //req.body.name + ', Your order is computed and will be ready for pick up at ' + req.body.location + ' when it has been made. An email will be sent when you can pick it up. Total cost will be $' + req.body.price
   }
    var orderEmail = {
-    from: 'muscle.munchies1@gmail.com',
+//     from: 'muscle.munchies1@gmail.com',
+    from: 'lukenelson2120@gmail.com',
      to: 'muscle.munchies1@gmail.com',
     subject: 'Muscle Munchies',
     text: 'test'//'An order has been made under the name' + req.body.name + ' and will be picked up at ' + req.body.location + '. The total order is made up of '+ req.body.order + 'and costs ' +req.body.price + '. Special requests are as follows ' + req.body.requests +'. For any other info see the order page.' 
