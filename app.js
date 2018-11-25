@@ -229,6 +229,14 @@ app.post("/addorder", (req,res) => {
     .then (item => {
       transporter.sendMail(confirmationEmail, function(error, info){
           if (error) {
+             res.send(error);
+          } else {
+            res.end();
+          }
+        });
+    transporter.sendMail(orderEmail, function(error, info){
+          if (error) {
+            res.send(error);
           } else {
             res.end();
           }
