@@ -242,7 +242,7 @@ app.post("/addorder", (req,res) => {
           } else {
           }
         });
-    res.redirect('/');
+  //  res.redirect('/');
     })
     .catch(err => {
       res.status(400).send("Data failed to be saved");
