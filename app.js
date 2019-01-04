@@ -24,7 +24,7 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-   user: 'muscle.munchies1@gmail.com',
+   user: 'musclemunchiesorders@gmail.com',
    pass: 'Protein12345'
 //     user: 'lukenelson2120@gmail.com',
 //     pass: 'Lionlion99'
@@ -216,14 +216,14 @@ app.post("/addorder", (req,res) => {
 
   var newOrder = new order(req.body);
   var confirmationEmail = {
-   from: 'muscle.munchies1@gmail.com',
+   from: 'musclemunchiesorders@gmail.com',
    // from: 'lukenelson2120@gmail.com',
      to: req.body.email,
     subject: 'Muscle Munchies',
     text: req.body.name + ', Your order is computed and will be ready for pick up at ' + req.body.location + ' when it has been made. An email will be sent when you can pick it up. Total cost will be $' + req.body.price
   }
    var orderEmail = {
-  from: 'muscle.munchies1@gmail.com',
+  from: 'musclemunchiesorders@gmail.com',
    // from: 'lukenelson2120@gmail.com',
      to: 'muscle.munchies1@gmail.com',
     subject: 'Muscle Munchies',
@@ -255,7 +255,7 @@ app.post("/addorder", (req,res) => {
 app.post("/deleteorder", (req,res) => {
 order.deleteOne({email: req.body.email}, function(err){
   var finalEmail = {
-    from: 'muscle.munchies1@gmail.com',
+    from: 'musclemunchiesorders@gmail.com',
      to: req.body.email,
     subject: 'Muscle Munchies',
     text: 'Your order is ready for pick up.'
