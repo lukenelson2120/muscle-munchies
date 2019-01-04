@@ -272,16 +272,16 @@ res.redirect('/adminF');
 });
 });
 
-app.post("/deleteAll", (req, res) => {
-  order.remove({email:""}, function(err){
-  if(err) {
-    alert(err);
-    return;
-  } else {
-     }
-    });
-  res.redirect('/adminF');
-});
+// app.post("/deleteAll", (req, res) => {
+//   order.remove({email:""}, function(err){
+//   if(err) {
+//     alert(err);
+//     return;
+//   } else {
+//      }
+//     });
+//   res.redirect('/adminF');
+// });
 
 app.post("/payorder", (req,res) => {
 order.findOne({email: req.body.email}, function(err, ord){
