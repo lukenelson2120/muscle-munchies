@@ -273,7 +273,7 @@ res.redirect('/adminF');
 });
 
 app.post("/deleteAll", (req, res) => {
-  order.deleteMany({email: :""}, function(err){
+  order.deleteMany({email:""}, function(err){
   if(err) {
     alert(err);
     return;
