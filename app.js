@@ -273,12 +273,13 @@ res.redirect('/adminF');
 });
 
 app.post("/deleteAll", (req, res) => {
-  order.remove({});
-//   if(err) {
-//     alert(err);
-//     return;
-//   } else {
-//      }
+  order.deleteMany({email: :""}, function(err){
+  if(err) {
+    alert(err);
+    return;
+  } else {
+     }
+    });
   res.redirect('/adminF');
 });
 
