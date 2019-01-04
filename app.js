@@ -29,7 +29,7 @@ var transporter = nodemailer.createTransport({
 //     user: 'lukenelson2120@gmail.com',
 //     pass: 'Lionlion99'
   }
- tls: { rejectUnauthorized: false }
+//  tls: { rejectUnauthorized: false }
 });
 
 
