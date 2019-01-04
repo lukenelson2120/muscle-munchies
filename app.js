@@ -201,8 +201,10 @@ app.post("/editproduct", (req,res) => {
 
   // deleting products
 app.post("/deleteproduct", (req,res) => {
-   order.deleteMany( {"email":""} );
-
+    product.deleteOne({productName: req.body.name}, function(err){
+    if(err) {
+      alert(err);
+      return; }
   res.redirect('/adminF');
   });
 });
