@@ -275,7 +275,7 @@ res.redirect('/adminF');
 });
 
 app.post("/deleteAll", (req, res) => {
-  order.deleteMany({});
+  order.remove({});
 //   if(err) {
 //     alert(err);
 //     return;
